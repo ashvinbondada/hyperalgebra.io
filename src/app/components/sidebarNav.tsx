@@ -21,18 +21,14 @@ export default function SidebarNav({active}: Props) {
 
   return (
     <aside 
-      className={`fixed bg-anti-flash-white text-jet dark:text-anti-flash-white dark:bg-smoky-black ${active ? "w-[200px] border-r-2 border-r-smoky-black dark:border-r-anti-flash-white" : "w-[0px] border-none"} h-[calc(100vh-64px)] overflow-y-auto z-50  
-        `}
       >
         {/* <div className="flex justify-end">
         <SidebarButton active_prop={active} /> 
         </div> */}
-        <div className="flex-col max-h-screen grid justify-items-center px-2 ${active ? 'block' : 'hidden'}`">
+        <div className={`overflow-hidden flex-col grid justify-items-center ${active ? 'block' : 'hidden'}`}>
           <Link className="text-xl" href="/">Home</Link>
           <nav> 
-              <div className="prose">
-                <h1 className="prose-xl">Hello</h1>
-              </div>
+              <h1 className="text-xl">Hello</h1>
               <div>hello</div>
               <div>hello</div>
               <div>hello</div>
@@ -46,79 +42,26 @@ export default function SidebarNav({active}: Props) {
               <div>hello</div>
               <div>hello</div>
               <div>hello</div>
+              <div>hello</div> <div>hello</div>
               <div>hello</div>
+              <div>hello</div> <div>hello</div>
               <div>hello</div>
+              <div>hello</div> <div>hello</div>
               <div>hello</div>
+              <div>hello</div> <div>hello</div>
               <div>hello</div>
+              <div>hello</div> <div>hello</div>
               <div>hello</div>
+              <div>hello</div> <div>hello</div>
               <div>hello</div>
+              <div>hello</div> <div>hello</div>
               <div>hello</div>
               <div>hello</div>
               <div>hello</div>
               <div>hello</div>
+              <div>hello</div> <div>hello</div>
               <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
+              <div>hello</div> <div>hello</div>
               <div>hello</div>
               <div>hello</div>
           </nav>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { BsWindowSidebar } from "react-icons/bs";
+import { PiStudent } from "react-icons/pi";
 import SidebarNav from './sidebarNav';
 
 type Props = {
@@ -16,29 +17,34 @@ export default function Sidebar({ active_prop }: Props) {
   };
 
   return (
-    <div className="relative">
-      {/* Sidebar */}
-      <div
-        className={`transition-all duration-300 ease-in-out bg-anti-flash-white dark:bg-smoky-black h-[calc(100vh-64px)] ${
-          active ? 'w-[200px]' : 'w-0'
-        } flex-shrink-0 fixed left-0 z-40`}
-      >
-        {active && <SidebarNav active={active} />}
+    <div className={` 
+      ${active ? "w-[200px] bg-gray" : "w-[70px] bg-anti-flash-white dark:bg-smoky-black"} h-full flex flex-col  transition-all duration-300 ease-in-out
+    `}>
+      {/* Sidebar Toggle Button */}
+      <div id="sidebar-buttons" className={`w-full h-16 justify-start items-center px-4 rounded-bl-lg rounded-br-lg flex flex-row text-2xl ${active ? "bg-jet/40 z-40 shadow-md" : "bg-anti-flash-white dark:bg-smoky-black"} transition-all duration-300 ease-in-out`}>
+          <button onClick={() => toggleSidebar()} className={`p-1 rounded-md hover:bg-transparent/10`}>
+            <BsWindowSidebar />
+          </button>
+          <div className={`w-full h-full grid place-items-center transition-opacity duration-300 ease-in-out ${active ? "opacity-100" : "opacity-0"}`}>
+            <p>Chapter</p>
+          </div>
       </div>
 
-      {/* Sidebar Toggle Button - When collapsed, it moves to the content area */}
-      <div
-        className={`absolute top-16 z-50 transition-all duration-300 ease-in-out ${
-          active ? 'left-[200px]' : 'left-4'
-        }`}
-      >
-        <button
-          className="bg-anti-flash-white dark:bg-smoky-black p-2 rounded-r-lg shadow-lg text-gray-500 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 text-3xl"
-          onClick={toggleSidebar}
-        >
-          <BsWindowSidebar />
-        </button>
+      {/* Sidebar Navigation */}
+      <div id="sidebar-nav" className='w-full flex-1 overflow-y-auto transition-all duration-300 ease-in-out'>
+        <SidebarNav active={active}/>
       </div>
+
+      {/* Another button at the bottom */}
+      <div id="sidebar-buttons" className={`w-full h-16 justify-start items-center px-4 rounded-lg flex flex-row text-2xl ${active ? "bg-jet/40 z-40 shadow-md" : "bg-anti-flash-white dark:bg-smoky-black"} transition-all duration-300 ease-in-out`}>
+          <button onClick={() => toggleSidebar()} className={`p-1 rounded-md hover:bg-transparent/10`}>
+            <PiStudent />
+          </button>
+          <div className={`w-full h-full grid place-items-center transition-opacity duration-300 ease-in-out ${active ? "opacity-100" : "opacity-0"}`}>
+            <p>User</p>
+          </div>
+      </div>
+
     </div>
   );
 }
