@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/navbar";
+import Sidebar from "./components/sidebar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,14 +14,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="bg-white dark:bg-black">
+    <html lang="en" className="h-full">
+      <body className="h-full overflow-hidden">
         <Navbar />
-        {/* <Sidebar>
-          <SidebarItem text={"list1"} />
-        </Sidebar> */}
-        <main className="px-4 md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">
-          {children}
+        <main className="flex h-[calc(100vh-64px)] flex-row ">
+          <Sidebar />
+          <div className="flex-1 ml-[200px] overflow-y-auto scroll-smooth">
+            {children}
+          </div>
         </main>
       </body>
     </html>
