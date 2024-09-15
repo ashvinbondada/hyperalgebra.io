@@ -1,110 +1,44 @@
-// import React from 'react'
+'use client'; // Marks this as a client component in Next.js
 
-import Link from "next/link";
+import { useState } from 'react';
+import { BsWindowSidebar } from "react-icons/bs";
+import SidebarNav from './sidebarNav';
 
-export default function Sidebar() {
+type Props = {
+  active_prop: boolean;
+}
+
+export default function Sidebar({ active_prop }: Props) {
+  const [active, setActive] = useState(active_prop); // Local state for client-side rendering
+
+  const toggleSidebar = () => {
+    setActive(!active); // Toggle the sidebar open/close state
+  };
+
   return (
-    <aside 
-      className="fixed bg-anti-flash-white text-jet dark:text-anti-flash-white dark:bg-smoky-black w-[200px] h-[calc(100vh-64px)] overflow-y-auto border-r-2
-     border-r-smoky-black dark:border-r-anti-flash-white z-50
-      "
+    <div className="relative">
+      {/* Sidebar */}
+      <div
+        className={`transition-all duration-300 ease-in-out bg-anti-flash-white dark:bg-smoky-black h-[calc(100vh-64px)] ${
+          active ? 'w-[200px]' : 'w-0'
+        } flex-shrink-0 fixed left-0 z-40`}
       >
-        <div className="flex-col max-h-screen grid justify-items-center px-2">
-          <Link className="text-xl" href="/">Home</Link>
-          <nav> 
-              <div className="prose">
-                <h1 className="prose-xl">Hello</h1>
-              </div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-          </nav>
-        </div>
-    </aside>
-  )
+        {active && <SidebarNav active={active} />}
+      </div>
+
+      {/* Sidebar Toggle Button - When collapsed, it moves to the content area */}
+      <div
+        className={`absolute top-16 z-50 transition-all duration-300 ease-in-out ${
+          active ? 'left-[200px]' : 'left-4'
+        }`}
+      >
+        <button
+          className="bg-anti-flash-white dark:bg-smoky-black p-2 rounded-r-lg shadow-lg text-gray-500 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 text-3xl"
+          onClick={toggleSidebar}
+        >
+          <BsWindowSidebar />
+        </button>
+      </div>
+    </div>
+  );
 }

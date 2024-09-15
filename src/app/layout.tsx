@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/navbar";
 import Sidebar from "./components/sidebar";
+// import TailNav from "./components/tailwind-nav";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,8 +19,9 @@ export default function RootLayout({
       <body className="h-full overflow-hidden">
         <Navbar />
         <main className="flex h-[calc(100vh-64px)] flex-row ">
-          <Sidebar />
-          <div className="flex-1 ml-[200px] overflow-y-auto scroll-smooth">
+          <Sidebar active_prop={true} />
+          {/* <TailNav /> */}
+          <div className="flex-1 overflow-y-auto scroll-smooth">
             {children}
           </div>
         </main>
