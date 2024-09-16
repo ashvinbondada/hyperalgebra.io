@@ -5,12 +5,8 @@ import { BsWindowSidebar } from "react-icons/bs";
 import { PiStudent } from "react-icons/pi";
 import SidebarNav from './sidebarNav';
 
-type Props = {
-  active_prop: boolean;
-}
-
-export default function Sidebar({ active_prop }: Props) {
-  const [active, setActive] = useState(active_prop); // Local state for client-side rendering
+export default function Sidebar() {
+  const [active, setActive] = useState(false); // Local state for client-side rendering
 
   const toggleSidebar = () => {
     setActive(!active); // Toggle the sidebar open/close state

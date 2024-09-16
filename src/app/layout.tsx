@@ -19,8 +19,7 @@ export default function RootLayout({
       <body className="h-full overflow-hidden">
         <Navbar />
         <main className="flex h-[calc(100vh-64px)] flex-row ">
-          <Sidebar active_prop={true} />
-          {/* <TailNav /> */}
+          <Sidebar />
           <div className="flex-1 overflow-y-auto scroll-smooth">
             {children}
           </div>
