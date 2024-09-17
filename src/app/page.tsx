@@ -1,14 +1,16 @@
 // import Image from "next/image";
 
-export default function Home() {
+export const revalidate = 0
+
+export default async function Home() {
   return (
     <div className="bg-anti-flash-white dark:bg-smoky-black
-      grid justify-items-center dark:text-anti-flash-white px-4
+      flex justify-center items-center h-full dark:text-anti-flash-white px-4
     ">
-      <h1 className="text-6xl mb-8">
-        Hello World
+      <h1 className="text-6xl mb-8 text-jet/60 select-none">
+        Free Digital Verified Linear Algebra
       </h1>
-      <div className="max-w-prose text-center text-lg space-y-6">
+      {/* <div className="max-w-prose text-center text-lg space-y-6">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel hendrerit purus, nec pretium ligula. Phasellus condimentum felis vel purus malesuada, at facilisis libero vestibulum. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
         </p>
@@ -36,7 +38,7 @@ export default function Home() {
         <p>
           Fusce id orci at nulla pretium auctor. Nunc dapibus urna a purus lobortis, sit amet aliquam justo fermentum. Vivamus pretium mi vel massa vehicula, vel hendrerit lorem egestas. Nam rhoncus felis non quam gravida tincidunt. Etiam finibus nisi a semper bibendum.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
